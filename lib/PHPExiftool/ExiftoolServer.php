@@ -125,7 +125,7 @@ class ExiftoolServer extends Exiftool
     {
 
         $this->pipefile = tempnam(sys_get_temp_dir(), 'exiftool-pipe');
-        $this->server = new Process(self::getBinary() . ' -stay_open True -@ ' . $this->pipefile);
+        $this->server = Process::fromShellCommandLine(self::getBinary() . ' -stay_open True -@ ' . $this->pipefile);
     }
 
     private function cleanup()

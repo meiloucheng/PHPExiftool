@@ -33,7 +33,7 @@ abstract class AbstractReaderTest extends \PHPUnit_Framework_TestCase {
             $command = 'rmdir -Rf ' . escapeshellarg($tmpDir);
         }
 
-        $process = new \Symfony\Component\Process\Process($command);
+        $process = \Symfony\Component\Process\Process::fromShellCommandLine($command);
         $process->run();
 
         if (!is_dir($tmpDir)) {
